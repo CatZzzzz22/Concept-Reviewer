@@ -6,26 +6,22 @@
   <link href="pageStyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+  
 <!-- Navigation Bar-->
 <div class="navbar">
   <a href="main.htm">Home</a>
-  <a href="#news">News</a>
   <div class="dropdown">
-      <button class="dropbtn">Math
-          <i class="fa fa-caret-down"></i>
-      </button>
+      <button class="dropbtn">Math</button>
       <div class="dropdown-content">
           <a href="#">Math135</a>
           <a href="#">Math137</a>
       </div>
   </div>
   <div class="dropdown">
-      <button class="dropbtn">CS
-          <i class="fa fa-caret-down"></i>
-      </button>
+      <button class="dropbtn">CS</button>
       <div class="dropdown-content">
           <a href="#">CS135</a>
-          <a href="CS136.htm">CS136</a>
+          <a href="courseTemplate.htm">CS136</a>
       </div>
   </div>
 </div>
@@ -37,36 +33,12 @@
   </div>
 </div>
 
-<!--Showing concept on the front page-->
-<%
-int num = (int)(6 * Math.random());
-%>
-<%
-switch(num) {
-case 0:
-  out.println("1");
-  break;
-case 1:
-  out.println("2");
-  break;
-case 2:
-  out.println("3");
-  break;
-case 3:
-  out.println("4");
-  break;
-case 4:
-  out.println("5");
-  break;
-case 5:
-  out.println("6");
-  break;
-//default:
-//   out.println("7");
-}
-%>
+
 <br />
-<input type="button" onclick="javascript:location.reload();" value="new concept">
+<p id="demo">concept will be displaed here</p>
+<button type="button" onclick="displayConcept()">new concept</button>
+<script src="feature.js"></script>
+<!-- <input type="button" onclick="javascript:location.reload();" value="new concept"> -->
 </body>
 
 </html>
