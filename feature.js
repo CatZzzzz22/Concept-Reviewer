@@ -8,14 +8,19 @@ const Math135 = [];
 
 const Math136 = [];
 
-function displayConcept(choice) {
-    const courses = [
-        new Map([["name", CS135], ["page", ""]]),
-        new Map([["name", CS136], ["page", ""]]),
-        new Map([["name", Math135], ["page", ""]]),
-        new Map([["name", Math136], ["page", ""]])];
 
+const courses = [
+    new Map([["var", CS135], ["name", "CS135"]]),
+    new Map([["var", CS136], ["name", "CS136"]]),
+    new Map([["var", Math135], ["name", "Math135"]]),
+    new Map([["var", Math136], ["name", "Math136"]])];
+
+// Display a concept based on t he choice
+// -1 indicate randomly select from all course, a number 
+// Require: -1 <= choice < courses.length
+function displayConcept(choice) {
     let course;
+
     if (choice == -1) {
         // Return a random integer from 0 to (array length) - 1
         let randCourse = Math.floor(Math.random() * courses.length); 
@@ -24,9 +29,11 @@ function displayConcept(choice) {
         course = courses[choice];
     }
 
-    let courseName = course.get("name");
-    let concept = courseName[Math.floor(Math.random() * courseName.length)];
-    
+    // Get a random concept from the selected course
+    let courseVar = course.get("var");
+    let randConcept = Math.floor(Math.random() * courseVar.length);
+    let concept = courseVar[randConcept];
+
     document.getElementById('concept').innerHTML = concept.get("concept") + 
-    "---" + Object.keys({courseName})[0] + " #" + concept.get("number");
+    "---" + course.get("name") + " #" + concept.get("number");
 }
